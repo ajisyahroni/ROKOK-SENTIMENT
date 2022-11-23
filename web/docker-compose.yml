@@ -1,0 +1,18 @@
+version: '3'
+networks:
+  rokok_classifier:
+
+
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: python.dockerfile
+    container_name: rokok_classifier_container
+    command: python app.py
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app
+    networks:
+      - rokok_classifier
